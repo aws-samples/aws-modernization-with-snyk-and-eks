@@ -36,7 +36,7 @@ TODO: replace this image with new UI
 
 ![Bitbucket integration 02](../images/snyk-bitbucket-integration-02.png)
 
-Find the repository you forked in the [**Guided Workshop Setup**]({{< relref "4_config-personal-environment#step-1-fork-the-repository" >}}) module. Click the checkbox to select it then click the 
+Find the repository you forked in the setup module. Click the checkbox to select it then click the 
 __Add selected repository__ button to import your project.
 
 TODO: replace this image with new UI
