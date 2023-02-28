@@ -1,5 +1,5 @@
 ---
-title: "Update Bitbucket Pipeline"
+title: "Review Bitbucket Pipeline"
 chapter: true
 weight: 45 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES IF APPLICABLE
 ---
@@ -37,16 +37,18 @@ scan-app: &scan-app
       caches:
         - node
       script:
-        - pipe: snyk/snyk-scan:0.4.3
-          variables:
-            SNYK_TOKEN: $SNYK_TOKEN
-            LANGUAGE: "npm"
-            PROJECT_FOLDER: "app/goof"
-            TARGET_FILE: "package.json"
-            CODE_INSIGHTS_RESULTS: "true"
-            SEVERITY_THRESHOLD: "high"
-            DONT_BREAK_BUILD: "true"
-            MONITOR: "false"
+        - echo "Scan open source Dependencies"
+# Uncomment this block to enable Snyk Scan of open-source.
+#        - pipe: snyk/snyk-scan:0.5.3
+#          variables:
+#            SNYK_TOKEN: $SNYK_TOKEN
+#            LANGUAGE: "npm"
+#            PROJECT_FOLDER: "app/goof"
+#            TARGET_FILE: "package.json"
+#            CODE_INSIGHTS_RESULTS: "true"
+#            SEVERITY_THRESHOLD: "high"
+#            DONT_BREAK_BUILD: "true"
+#            MONITOR: "false"
 
 scan-push-image: &scan-push-image
   - step:
@@ -56,18 +58,19 @@ scan-push-image: &scan-push-image
       script:
         - docker build -t $IMAGE ./app/goof/
         - docker tag $IMAGE $IMAGE:${BITBUCKET_COMMIT}
-        - pipe: snyk/snyk-scan:0.4.3
-          variables:
-            SNYK_TOKEN: $SNYK_TOKEN
-            LANGUAGE: "docker"
-            IMAGE_NAME: $IMAGE
-            PROJECT_FOLDER: "app/goof"
-            TARGET_FILE: "Dockerfile"
-            CODE_INSIGHTS_RESULTS: "true"
-            SEVERITY_THRESHOLD: "high"
-            DONT_BREAK_BUILD: "true"
-            MONITOR: "false"
-        - pipe: atlassian/aws-ecr-push-image:1.1.3
+# Uncomment this block to enable Snyk Scan of container images.
+#        - pipe: snyk/snyk-scan:0.5.3
+#          variables:
+#            SNYK_TOKEN: $SNYK_TOKEN
+#            LANGUAGE: "docker"
+#            IMAGE_NAME: $IMAGE
+#            PROJECT_FOLDER: "app/goof"
+#            TARGET_FILE: "Dockerfile"
+#            CODE_INSIGHTS_RESULTS: "true"
+#            SEVERITY_THRESHOLD: "high"
+#            DONT_BREAK_BUILD: "true"
+#            MONITOR: "false"
+        - pipe: atlassian/aws-ecr-push-image:2.0.0
           variables:
             AWS_ACCESS_KEY_ID: '$AWS_ACCESS_KEY_ID'
             AWS_SECRET_ACCESS_KEY: '$AWS_SECRET_ACCESS_KEY'
@@ -80,7 +83,7 @@ deploy-app: &deploy-app
       name: "Deploy application"
       deployment: staging
       script:
-        - pipe: atlassian/aws-eks-kubectl-run:1.2.4
+        - pipe: atlassian/aws-eks-kubectl-run:2.2.0
           variables:
             AWS_ACCESS_KEY_ID: '$AWS_ACCESS_KEY_ID'
             AWS_SECRET_ACCESS_KEY: '$AWS_SECRET_ACCESS_KEY'
@@ -90,7 +93,7 @@ deploy-app: &deploy-app
             RESOURCE_PATH: "./deployment/goof-service.yaml"
         - envsubst < ./deployment/goof-deployment-template.yaml > ./deployment/goof-deployment.yaml
         - cat ./deployment/goof-deployment.yaml
-        - pipe: atlassian/aws-eks-kubectl-run:1.2.4
+        - pipe: atlassian/aws-eks-kubectl-run:2.2.0
           variables:
             AWS_ACCESS_KEY_ID: '$AWS_ACCESS_KEY_ID'
             AWS_SECRET_ACCESS_KEY: '$AWS_SECRET_ACCESS_KEY'
@@ -102,9 +105,11 @@ deploy-app: &deploy-app
 pipelines:
   default:
     - <<: *test-app
-    - <<: *scan-app
+# Uncomment this line to enable the scanning of the application.
+#    - <<: *scan-app
     - <<: *scan-push-image
-    - <<: *deploy-app
+# Uncomment this line to enable the deployment to EKS
+#    - <<: *deploy-app
 
 ```
 
@@ -122,3 +127,6 @@ Once enabled, you can run the pipeline by accepting the default branch `master` 
 
 
 ![Run Pipeline](/images/bitbucket-run-pipeline.png)
+
+
+In the next module, we'll add Snyk scanning and review the results.
