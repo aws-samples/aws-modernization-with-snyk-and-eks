@@ -20,6 +20,7 @@ Navigate to the repository view for the file `bitbucket-pipelines.yml` and revie
 ```yaml
 image: atlassian/default-image:2
 
+
 test-app: &test-app
   - step:
       name: "Test application"
@@ -28,6 +29,13 @@ test-app: &test-app
       script:
         - cd app/goof
         - npm install
+        # Uncomment the following lines to enable Snyk Scan of code
+        # - curl https://static.snyk.io/cli/latest/snyk-linux -o snyk-linux
+        # - chmod +x snyk-linux
+        # - set -e
+        # - EXIT_CODE=0
+        # - ./snyk-linux -d code test || EXIT_CODE=$?
+        # - echo $EXIT_CODE
       artifacts:
         - app/**
 
@@ -38,17 +46,23 @@ scan-app: &scan-app
         - node
       script:
         - echo "Scan open source Dependencies"
-# Uncomment this block to enable Snyk Scan of open-source.
-#        - pipe: snyk/snyk-scan:0.5.3
-#          variables:
-#            SNYK_TOKEN: $SNYK_TOKEN
-#            LANGUAGE: "npm"
-#            PROJECT_FOLDER: "app/goof"
-#            TARGET_FILE: "package.json"
-#            CODE_INSIGHTS_RESULTS: "true"
-#            SEVERITY_THRESHOLD: "high"
-#            DONT_BREAK_BUILD: "true"
-#            MONITOR: "false"
+        # Uncomment the following lines to enable Snyk Open Source Scanning
+        # - pipe: snyk/snyk-scan:0.5.3
+        #   variables:
+        #     SNYK_TOKEN: $SNYK_TOKEN
+        #     LANGUAGE: "npm"
+        #     PROJECT_FOLDER: "app/goof"
+        #     TARGET_FILE: "package.json"
+        #     CODE_INSIGHTS_RESULTS: "true"
+        #     SEVERITY_THRESHOLD: "high"
+        #     DONT_BREAK_BUILD: "true"
+        #     MONITOR: "false"
+
+        - pipe: snyk/snyk-scan:0.5.3
+          variables:
+            SNYK_TOKEN: $SNYK_TOKEN
+            SNYK_TEST_JSON_INPUT: "snyk-test-output.json"
+
 
 scan-push-image: &scan-push-image
   - step:
@@ -58,18 +72,18 @@ scan-push-image: &scan-push-image
       script:
         - docker build -t $IMAGE ./app/goof/
         - docker tag $IMAGE $IMAGE:${BITBUCKET_COMMIT}
-# Uncomment this block to enable Snyk Scan of container images.
-#        - pipe: snyk/snyk-scan:0.5.3
-#          variables:
-#            SNYK_TOKEN: $SNYK_TOKEN
-#            LANGUAGE: "docker"
-#            IMAGE_NAME: $IMAGE
-#            PROJECT_FOLDER: "app/goof"
-#            TARGET_FILE: "Dockerfile"
-#            CODE_INSIGHTS_RESULTS: "true"
-#            SEVERITY_THRESHOLD: "high"
-#            DONT_BREAK_BUILD: "true"
-#            MONITOR: "false"
+      # Uncomment this block to enable Snyk Scan of container images.
+      #  - pipe: snyk/snyk-scan:0.5.3
+      #    variables:
+      #      SNYK_TOKEN: $SNYK_TOKEN
+      #      LANGUAGE: "docker"
+      #      IMAGE_NAME: $IMAGE
+      #      PROJECT_FOLDER: "app/goof"
+      #      TARGET_FILE: "Dockerfile"
+      #      CODE_INSIGHTS_RESULTS: "true"
+      #      SEVERITY_THRESHOLD: "high"
+      #      DONT_BREAK_BUILD: "true"
+      #      MONITOR: "false"
         - pipe: atlassian/aws-ecr-push-image:2.0.0
           variables:
             AWS_ACCESS_KEY_ID: '$AWS_ACCESS_KEY_ID'
@@ -105,12 +119,11 @@ deploy-app: &deploy-app
 pipelines:
   default:
     - <<: *test-app
-# Uncomment this line to enable the scanning of the application.
-#    - <<: *scan-app
+    # Uncomment this line to enable the scanning of the application.
+    # - <<: *scan-app
     - <<: *scan-push-image
-# Uncomment this line to enable the deployment to EKS
-#    - <<: *deploy-app
-
+    # Uncomment this line to enable the deployment to EKS
+    # - <<: *deploy-app
 ```
 
 Once you review, let's now run the pipeline.
