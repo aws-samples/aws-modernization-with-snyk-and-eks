@@ -22,7 +22,7 @@ accompanies this workshop.
 
 Let's make sure the AWS CLI installed correctly.
 
-```bash
+```shell
 aws --version
 ```
 
@@ -34,7 +34,7 @@ Remember that you will need to run `aws configure` to setup your AWS credentials
 
 We are going to install `eksctl` with [Homebrew](https://docs.brew.sh/Installation.html).
 
-```bash
+```shell
 brew tap weaveworks/tap && \
 brew update && \
 brew install weaveworks/tap/eksctl
@@ -49,7 +49,7 @@ Installing `eksctl` with Homebrew will also install the `kubectl` command-line u
 The Snyk CLI authenticates your machine with your Snyk account. This tool will help you find and fix known vulnerabilities 
 in your dependencies, both manually and also as part of your continuous integration build server.
 
-```bash
+```shell
 brew tap snyk/tap && \
 brew update && \
 brew install snyk
@@ -58,7 +58,7 @@ brew install snyk
 To associate your Snyk account with the CLI, you must first authenticate your machine. No repository permissions are 
 needed at this stage. Simply run the following command:
 
-```bash
+```shell
 snyk auth
 ```
 

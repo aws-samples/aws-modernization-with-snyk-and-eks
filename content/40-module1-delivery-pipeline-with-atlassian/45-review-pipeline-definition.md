@@ -20,7 +20,6 @@ Navigate to the repository view for the file `bitbucket-pipelines.yml` and revie
 ```yaml
 image: atlassian/default-image:2
 
-
 test-app: &test-app
   - step:
       name: "Test application"
@@ -72,6 +71,7 @@ scan-push-image: &scan-push-image
       script:
         - docker build -t $IMAGE ./app/goof/
         - docker tag $IMAGE $IMAGE:${BITBUCKET_COMMIT}
+        - echo "Scan Container images"
       # Uncomment this block to enable Snyk Scan of container images.
       #  - pipe: snyk/snyk-scan:0.5.3
       #    variables:

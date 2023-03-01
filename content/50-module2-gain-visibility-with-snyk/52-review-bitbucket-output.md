@@ -19,7 +19,7 @@ In the first section entitled _Test Application_, we added some lines of code to
 
 We also enabled debug for additional visibility.  In normal situations, you would only use debug to troubleshoot an issue, and we include that output for a more complete picture.  If we review some of the output, you will see different types of outputs:
 
-```bash
+```shell
 ... LINES DELETED ...
 
 Testing /opt/atlassian/pipelines/agent/build/app/goof ...

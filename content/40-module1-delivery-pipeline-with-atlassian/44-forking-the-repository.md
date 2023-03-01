@@ -23,7 +23,7 @@ instructions.
 
 Open a terminal in your Cloud9 environment, and enter the following commands to navigate to your base directory and clone the forked repository vis HTTPS
 
-```bash
+```shell
 cd ~/environment
 git clone https://marco-morales-snyk@bitbucket.org/marco-morales-snyk/patterns-library-atlassian-aws.git
 cd patterns-library-atlassian-aws
@@ -31,7 +31,7 @@ cd patterns-library-atlassian-aws
 
 or this command to clone via SSH:
 
-```bash
+```shell
 cd ~/environment
 git clone git@bitbucket.org:marco-morales-snyk/patterns-library-atlassian-aws.git
 cd patterns-library-atlassian-aws

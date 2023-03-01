@@ -34,3 +34,9 @@ After a few moments, the import should be complete.  The result is all of the pr
 _Note: You may seen an error on the import of the `bitbucket_pipelines.yml` file.  Snyk tries to analyze different types of files, including YAML, but does not process Bitbucket Pipeline definitions.  You may safely ignore this error._
 
 ![Snyk Bitbucket Cloud projects](../images/snyk-atlassian-integration-projects.png)
+
+At this point, your instructor will walk you through the screens and explain what is available.  The Snyk UI is comprehensive and contains more information than is provided in the Pipeline output.  Later, we will show you even more details available from the CLI.
+
+## Next steps.
+
+We'll round out the examples with a Snyk CLI example in the next page.
