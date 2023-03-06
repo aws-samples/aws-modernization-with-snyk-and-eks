@@ -47,29 +47,6 @@ Click to create the new user:
 Take note of the login URL and save:
 ![Login URL](../images/iam-4-save-url.png)
 
-## Provision AWS services
-We have simplified and automated the process for provisioning the necessary AWS services needed for this workshop.
-This is possible through the [Snyk controller for Amazon EKS Quickstart](https://aws.amazon.com/solutions/partners/eks-snyk/). 
-
-By clicking on the __Launch Stack__ button below, you will be redirected to the AWS CloudFormation console where you will
-be prompted to complete the following steps:
-
-- Create stack, click **Next**
-- Specify stack details, click **Next**
-- Configure stack options, click **Next**
-- Scroll to bottom section under **Capabilities** and check both boxes and click **Create stack** 
-
-When you are ready, click on the launch stack link below!
-
-[Launch Stack on us-east-1](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?stackName=Amazon-EKS-with-Snyk&templateURL=https://aws-quickstart.s3.us-east-1.amazonaws.com/quickstart-amazon-eks/templates/amazon-eks-master.template.yaml)
-
-
-[Launch Stack on us-west-2](https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/template?stackName=Amazon-EKS-with-Snyk&templateURL=https://aws-quickstart.s3.us-west-2.amazonaws.com/quickstart-amazon-eks/templates/amazon-eks-master.template.yaml)
-
-{{% notice info %}}
-The installation of the Snyk Monitor on Kubernetes takes several minutes. Please continue to the next section.
-{{% /notice %}}
-
 ## Proceed to Getting Started
 TODO: THis line changed to remove relative reference
 

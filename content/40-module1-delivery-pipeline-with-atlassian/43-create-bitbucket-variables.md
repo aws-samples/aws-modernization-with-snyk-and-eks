@@ -18,7 +18,8 @@ These will consist of the following variables named as shown below:
 1. AWS Identity & Access Management User [key and secret](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) for secure authenticated interactions with the AWS API: `AWS_ACCESS_KEY_ID` & `AWS_SECRET_ACCESS_KEY`
 1. AWS region you will be deploying to: `AWS_DEFAULT_REGION` with the value of something like `us-east-1`
 1. Container image name: `IMAGE` with the value of "goof".  This name needs to match the name of your ECR.
-1. Amazon EKS name of your cluster: `AWS_EKS_CLUSTER` if you have configured it.
+1. The URI to your AWS ECR: `AWS_ECR_URI`.  We use this for the deployment to EKS.
+1. (OPTIONAL) Amazon EKS name of your cluster: `AWS_EKS_CLUSTER` if you have configured it in a previous step.
 
 This screenshot shows those repository variables:
 ![Repository Variables](/images/bitbucket-repo-vars.png)
