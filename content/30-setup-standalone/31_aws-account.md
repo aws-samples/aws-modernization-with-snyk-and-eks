@@ -48,6 +48,4 @@ Take note of the login URL and save:
 ![Login URL](../images/iam-4-save-url.png)
 
 ## Proceed to Getting Started
-TODO: THis line changed to remove relative reference
-
-Once you have completed the step above, you can leave the AWS console open. You can now move to the [**Getting Started**]< relref "20_guided" > section.
+Once you have completed the step above, you can leave the AWS console open.  Continue to follow the instructions of your facilitator, or the next page if you are running standalone.

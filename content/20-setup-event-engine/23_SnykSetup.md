@@ -60,6 +60,6 @@ snyk auth
 In this case, you'll authenticate by logging on with the web UI of Snyk.
 
 
-### Next Section: TODO: Running with Snyk
+### Next Section: Running the workshop.
 Great, you have created and safely stored your newly created Snyk access token.  Let's get moving with the workshop.
 

@@ -1,15 +1,10 @@
 ## My Project
 
-TODO: Fill this README out!
+In this project, we define the content for the Snyk + Atlassian-themed AWS workshop.  
 
-Be sure to:
-
-* Change the title in this README
-* Edit your repository description on GitHub
+This workshop is to be delivered by a facilitator, or as a self-service workshop.
 
 ## Security
-
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
 
 ## License Summary
 

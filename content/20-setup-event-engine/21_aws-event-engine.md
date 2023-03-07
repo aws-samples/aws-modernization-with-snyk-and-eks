@@ -31,13 +31,8 @@ Your workshop presenters will tell you when your account expires, and this is ty
 
 #### Step 4
 
-Use a single region for the duration of this workshop. This workshop supports the following regions:
-
-TODO : Confirm if we can also use us-east-1 and maybe one more.  I believe we should be able to use any region with EKS support
-
-* us-west-2 (US West - Oregon)
-
-Please select **US West (Oregon)** in the top right corner.
+Use a single region for the duration of this workshop. This workshop supports major AWS regions.  We'll use **us-east-1** for this workshop.
+ regions:
 
 ![Event Engine Region](../images/event-engine-region.png)
 
@@ -58,6 +53,4 @@ When you are ready, click the button below!
 [![Launch-Stack](../images/cloudformation-launch-stack.png)](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/template?stackName=Snyk-EKS&templateURL=https://aws-quickstart.s3.us-east-1.amazonaws.com/quickstart-amazon-eks/submodules/quickstart-eks-snyk/templates/eks-snyk.template.yaml)
 
 ## Proceed to Getting Started
-
-TODO: THis line changed to remove relative reference
-Once you have completed the step above, you can leave the AWS console open. You can now move to the [**Getting Started**]< relref "20_guided" > section. 
+Once you have completed the step above, you can continue with setting up your workshop under the direction of your facilitator, or the next page if you are running standalone.
