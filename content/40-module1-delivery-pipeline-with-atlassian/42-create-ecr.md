@@ -29,26 +29,3 @@ Make note of the URI for your repository, which will be in this form:
 
 `478468688580.dkr.ecr.us-east-1.amazonaws.com/goof`
 
-## Step 2: Connect ECR to your Snyk account.
-
-Next, we'll navigate to Snyk.io and login to configure your ECR integration.
-
-1. Navigate to snyk.io and log on.
-1. Click on your organization's settings, and the the Integrations section.
-![Snyk Integration](/images/snyk-org-integrations.png)
-
-1. Select the ECR integration and Edit the settings
-![Snyk ECR Integration](/images/snyk-ecr-integration.png)
-
-1. Enter your region (i.e. `us-east-1`)
-
-1. You will have to create an IAM Policy as specified in the Snyk docs for the integration.  The suggested name is `AmazonEC2ContainerRegistryReadOnlyForSnyk`
-
-1. Follow the instructions to create the IAM Policy with the suggested name of `AmazonEC2ContainerRegistryReadOnlyForSnyk`
-1. Also create the IAM Role that uses this policy, with the default name of `SnykServiceRole`
-1. And modify the Role's Trust relationships to specify the value of:
-`"sts:ExternalId": "c29dd000-ee52-438a-a5af-e773523506f4"` using your organization's name
-
-1. Assuming the recommended name, your ARN is `arn:aws:iam::YOURACCOUNTNUMBER:role/SnykServiceRole` which you enter into the Snyk UI.
-
-At this time, you do not yet have container images to add.  We'll add those in a bit.

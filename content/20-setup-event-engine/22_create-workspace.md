@@ -25,10 +25,10 @@ Click the Create environment button, and use the name use sh-workshop, then clic
 ![aws-cloud9-step-1](/images/aws-cloud9-1.png)
 
 In the configuration screens, 
-- Select the default instance type t2.micro
+- Select the default instance type `t2.small`
 - Leave all the other settings as default and click Next
 
-![aws-cloud9-step-1](/images/aws-cloud9-2.png)
+![aws-cloud9-step-1](/images/aws-setup-cloud9.png)
 
 Verify your selections and press the button to **Create environment**.
 

@@ -18,7 +18,7 @@ Your Snyk access token must be protected and not shared with unauthorized partie
 </p>
 {{% /notice %}}
 
-You can read more about Snyk Access Token from their docs here.
+You can read more about Snyk Access Token from their [docs here](https://docs.snyk.io/snyk-api-info/authentication-for-api).
 
 ## Setting up the Snyk CLI
 

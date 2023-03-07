@@ -8,7 +8,31 @@ weight: 55
 In this section, we'll scan files with the Snyk CLI.  In this example, we'll use Snyk to get results in different ways to highlight the possibibilities.
 
 
-## Step 1: Snyk for your custom code
+## Step 1 - Clone your fork locally
+
+Next, clone your forked repository into your Cloud9 environment. Please review Atlassian's documentation on 
+how to [clone a repository](https://confluence.atlassian.com/bitbucket/clone-a-repository-223217891.html) for detailed 
+instructions.
+
+Open a terminal in your Cloud9 environment, and enter the following commands to navigate to your base directory and clone the forked repository vis HTTPS
+
+```shell
+cd ~/environment
+git clone https://marco-morales-snyk@bitbucket.org/marco-morales-snyk/patterns-library-atlassian-aws.git
+cd patterns-library-atlassian-aws
+```
+
+or this command to clone via SSH:
+
+```shell
+cd ~/environment
+git clone git@bitbucket.org:marco-morales-snyk/patterns-library-atlassian-aws.git
+cd patterns-library-atlassian-aws
+```
+
+This clones the environment to your local workspace.
+
+## Step 2: Snyk for your custom code
 
 Navigate to your Cloud9 environment and enter the following command to get you into the base directory:
 
@@ -124,7 +148,7 @@ snyk code test --severity-threshold=high --json
 
 See the [Snyk docs](https://docs.snyk.io/scan-application-code/snyk-code/cli-for-snyk-code) for more information
 
-## Step 2: Snyk for your open source
+## Step 3: Snyk for your open source
 
 Next, let's look at the results of your open-source vulnerabilties with similar commannds.  Snyk open-source supports a variety of languages, and some of the subcommands are specific to a language or framework.  We'll explore some common examples, starting with a straight scan of your open source:
 
@@ -219,7 +243,7 @@ goof @ 1.0.1
 ```
 This view is handy to see your transitive dependencies.
 
-## Step 3: Snyk for your container
+## Step 4: Snyk for your container
 
 Next, let's look at the scan results for your containers
 

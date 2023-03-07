@@ -36,21 +36,6 @@ Use a single region for the duration of this workshop. This workshop supports ma
 
 ![Event Engine Region](../images/event-engine-region.png)
 
-#### Step 5
-
-We have simplified and automated the process for provisioning the necessary AWS services needed for this workshop.
-This is possible through the [Snyk controller for Amazon EKS](https://github.com/aws-quickstart/quickstart-eks-snyk) AWS Quick Start. 
-By clicking on the __Launch Stack__ button below, you will be redirected to the AWS CloudFormation console where you will
-be prompted to complete the following steps:
-
-- Create stack, **select appropriate AWS region** click **Next**
-- Specify stack details, **input EKS cluster name & Snyk integration ID** click **Next**
-- Configure stack options, click **Next**
-- Scroll to bottom section under **Capabilities** and click **Create stack** 
-
-When you are ready, click the button below!
-
-[![Launch-Stack](../images/cloudformation-launch-stack.png)](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/template?stackName=Snyk-EKS&templateURL=https://aws-quickstart.s3.us-east-1.amazonaws.com/quickstart-amazon-eks/submodules/quickstart-eks-snyk/templates/eks-snyk.template.yaml)
 
 ## Proceed to Getting Started
 Once you have completed the step above, you can continue with setting up your workshop under the direction of your facilitator, or the next page if you are running standalone.

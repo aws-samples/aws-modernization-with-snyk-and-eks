@@ -67,6 +67,9 @@ eksctl create cluster --name NAME_OF_YOUR_CLUSTER \
 --with-oidc
 ```
 
+We recommend you paste the command to an editor and modify the contents there and then paste into your CLI.
+
+
 This command takes between 20-40 minutes to run, so it is optional for most live workshops.  You do NOT have to specify the `--spot` parameter to utilize spot instances, but we do so in the interest of showing you can to save on costs.  
 
 When the operation is complete, you will have an EKS cluster you can reference in your bitbucket variables.
