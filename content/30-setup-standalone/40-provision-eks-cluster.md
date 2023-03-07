@@ -28,7 +28,7 @@ eksctl get cluster
 
 ## Install kubectl
 
-You'll n eed to install `kubectl` command line tool to your Cloud9 environment.  From a terminal in Cloud9, enter these commands to download and install the binary:
+You'll need to install `kubectl` command line tool to your Cloud9 environment.  From a terminal in Cloud9, enter these commands to download and install the binary:
 
 ```
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
@@ -69,4 +69,4 @@ eksctl create cluster --name NAME_OF_YOUR_CLUSTER \
 
 This command takes between 20-40 minutes to run, so it is optional for most live workshops.  You do NOT have to specify the `--spot` parameter to utilize spot instances, but we do so in the interest of showing you can to save on costs.  
 
-When the operation is complete, you will have an EKS cluster you can reference in your 
+When the operation is complete, you will have an EKS cluster you can reference in your bitbucket variables.
