@@ -29,7 +29,7 @@ Next, add the AdministratorAccess permissions policy.
 
 ## Name, review, and create
 
-3. Name your policy `hs-workshop-cloud9`
+3. Name your policy `workshop-cloud9`
 3. Click on Create role
 
 NOTE: in your environment, you would enter a description and tags per your company guidelines.
