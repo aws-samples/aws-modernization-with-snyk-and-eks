@@ -8,6 +8,12 @@ weight: 40
 
 In this section, we describe how to create an EKS cluster.  This step is optional during live workshops due to the time required to wait for the creation of the asset.
 
+You will need a few things to provision the cluster.  Some are covered in other sections of this workshop:
+
+- Disable AWS managed temporary credentials
+- Attach a new IAM role for Cloud9
+- Ensure you have a keypair available to you
+
 ## Install eksctl
 
 You'll need to install the `eksctl` command line tool to your Cloud9 environment.  From a terminal in Cloud9, enter these commands to download and install the binary:
@@ -28,7 +34,7 @@ eksctl get cluster
 
 ## Install kubectl
 
-You'll need to install `kubectl` command line tool to your Cloud9 environment.  From a terminal in Cloud9, enter these commands to download and install the binary:
+You'll need to install `kubectl` command line tool to your Cloud9 environment.  From a terminal in Cloud9, enter these commands to download and install the binary.  We separate the commands one-at-a-time to ensure they work for you.
 
 ```
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
