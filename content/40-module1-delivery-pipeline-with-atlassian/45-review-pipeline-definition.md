@@ -45,17 +45,16 @@ scan-app: &scan-app
         - node
       script:
         - echo "Scan open source Dependencies"
-        # Uncomment the following lines to enable Snyk Open Source Scanning
-        # - pipe: snyk/snyk-scan:0.5.3
-        #   variables:
-        #     SNYK_TOKEN: $SNYK_TOKEN
-        #     LANGUAGE: "npm"
-        #     PROJECT_FOLDER: "app/goof"
-        #     TARGET_FILE: "package.json"
-        #     CODE_INSIGHTS_RESULTS: "true"
-        #     SEVERITY_THRESHOLD: "high"
-        #     DONT_BREAK_BUILD: "true"
-        #     MONITOR: "false"
+         - pipe: snyk/snyk-scan:0.5.3
+           variables:
+             SNYK_TOKEN: $SNYK_TOKEN
+             LANGUAGE: "npm"
+             PROJECT_FOLDER: "app/goof"
+             TARGET_FILE: "package.json"
+             CODE_INSIGHTS_RESULTS: "true"
+             SEVERITY_THRESHOLD: "high"
+             DONT_BREAK_BUILD: "true"
+             MONITOR: "false"
 
         - pipe: snyk/snyk-scan:0.5.3
           variables:

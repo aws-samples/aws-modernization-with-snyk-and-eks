@@ -14,23 +14,16 @@ Next, clone your forked repository into your Cloud9 environment. Please review A
 how to [clone a repository](https://confluence.atlassian.com/bitbucket/clone-a-repository-223217891.html) for detailed 
 instructions.
 
-Open a terminal in your Cloud9 environment, and enter the following commands to navigate to your base directory and clone the forked repository vis HTTPS
+Open a terminal in your Cloud9 environment, navigate to your base directory, then enter the commands from the previous step to clone the forked repository vis HTTPS.
 
 ```shell
 cd ~/environment
-git clone https://marco-morales-snyk@bitbucket.org/marco-morales-snyk/patterns-library-atlassian-aws.git
+git clone https://x-token-auth:REALLYLONGNUMBER@bitbucket.org/marco-morales-snyk/workshop-patterns-library-atlassian-aws.git
+git config user.email SOMENUMBER@bots.bitbucket.org
 cd patterns-library-atlassian-aws
 ```
 
-or this command to clone via SSH:
-
-```shell
-cd ~/environment
-git clone git@bitbucket.org:marco-morales-snyk/patterns-library-atlassian-aws.git
-cd patterns-library-atlassian-aws
-```
-
-This clones the environment to your local workspace.
+This clones the environment to your local workspace and navigates to the new directory.
 
 ## Step 2: Snyk for your custom code
 

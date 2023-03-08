@@ -38,3 +38,5 @@ git clone https://x-token-auth:REALLYLONGNUMBER@bitbucket.org/marco-morales-snyk
 ```
 git config user.email SOMENUMBER@bots.bitbucket.org
 ```
+
+You'll use these commands in the next step.
