@@ -13,7 +13,7 @@ Before you can push your images to Amazon ECR, you must [create a repository](ht
 For this workshop, we will create the repository with the AWS Management Console:
 
 1. Open the Amazon ECR console at https://console.aws.amazon.com/ecr/repositories.
-1. From the navigation bar, choose the Region to create your repository in.
+1. From the navigation bar, change the Region to create your repository in to `us-east-1`.
 1. In the navigation pane, choose Repositories.
 1. On the Repositories page, choose Create repository.
 ![Create ECR](/images/aws-ecr-create-repository.png)
