@@ -1,7 +1,7 @@
 ---
 title: "Review and Fix Container Base Image Vulnerabilities in Snyk"
 chapter: true
-weight: 61
+weight: 62
 ---
 
 # Overview
