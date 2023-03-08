@@ -10,6 +10,7 @@ In this section, we describe how to create an EKS cluster.  This step is optiona
 
 You will need a few things to provision the cluster.  Some are covered in other sections of this workshop:
 
+- You have to create an AWS user, plus AWS keys
 - Disable AWS managed temporary credentials
 - Attach a new IAM role for Cloud9
 - Ensure you have a keypair available to you
