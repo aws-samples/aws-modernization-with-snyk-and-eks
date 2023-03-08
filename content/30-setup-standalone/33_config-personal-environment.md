@@ -47,13 +47,15 @@ Installing `eksctl` with Homebrew will also install the `kubectl` command-line u
 ## Installing the Snyk CLI
 
 The Snyk CLI authenticates your machine with your Snyk account. This tool will help you find and fix known vulnerabilities 
-in your dependencies, both manually and also as part of your continuous integration build server.
+in your dependencies, both manually and also as part of your continuous integration build server.  One way to install the CLI tool is with a package manager such as brew:
 
 ```shell
 brew tap snyk/tap && \
 brew update && \
 brew install snyk
 ```
+
+You have other options available, including downloading the binaries directly.  In the guided form of this workshop, we use `curl` commands to download the binaries directly.
 
 To associate your Snyk account with the CLI, you must first authenticate your machine. No repository permissions are 
 needed at this stage. Simply run the following command:

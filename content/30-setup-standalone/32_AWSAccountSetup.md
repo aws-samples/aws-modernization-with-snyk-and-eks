@@ -22,6 +22,12 @@ Skip the part to add tags.  Click to create the new user: finish creation
 Take note of the login URL and save: login url
 ![aws-add-user-4](/images/aws-add-user-4.png)
 
+Make note of your user's ARN, as you will need it later.  The ARN is of this format:
+
+```
+arn:aws:iam::157339908627:user/marco
+```
+
 ### Next Section: Creating AWS Keys
 In the next section, you will create AWS keys to allow Terraform to deply to AWS on your behalf.
 

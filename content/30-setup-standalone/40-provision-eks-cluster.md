@@ -6,14 +6,17 @@ weight: 40
 
 # Introduction
 
-In this section, we describe how to create an EKS cluster.  This step is optional during live workshops due to the time required to wait for the creation of the asset.
+In this section, we describe how to create an EKS cluster.  Setting up an EKS cluster is a neat exercise and worth reviewing at a high level in guided workshops, and you doing them in a standalone workshop.
+
+This step is optional during live workshops due to the time required to wait for the creation of the asset.  
 
 You will need a few things to provision the cluster.  Some are covered in other sections of this workshop:
 
-- You have to create an AWS user, plus AWS keys
-- Disable AWS managed temporary credentials
-- Attach a new IAM role for Cloud9
+**Prerequisites**
+- You have to create an AWS user, plus AWS keys.  This user will deploy your container to your cluster from your pipeline.
 - Ensure you have a keypair available to you
+- Attach a new IAM role for Cloud9 for permissions
+- Disable AWS managed temporary credentials in Cloud9
 
 ## Install eksctl
 
@@ -80,3 +83,90 @@ We recommend you paste the command to an editor and modify the contents there an
 This command takes between 20-40 minutes to run, so it is optional for most live workshops.  You do NOT have to specify the `--spot` parameter to utilize spot instances, but we do so in the interest of showing you can to save on costs.  
 
 When the operation is complete, you will have an EKS cluster you can reference in your bitbucket variables.
+
+## Modify your kubectl configuration
+
+Once your envionrment is up and running, you have to adjust your ConfigMap to permit the user you create access to your EKS cluster.
+
+This is necessary in Event Engine settings because of how we are actually running under an assumed role as shown by this command:
+
+```bash
+TeamRole:~/environment/workshop-patterns-library-atlassian-aws (master) $ aws sts get-caller-identity
+{
+    "UserId": "AROASJIRQPIJZH2IKKL25:i-055b75e64b72627bd",
+    "Account": "157339908627",
+    "Arn": "arn:aws:sts::157339908627:assumed-role/workshop-cloud9/i-055b75e64b72627bd"
+}
+```
+
+See how that is an assumed role?  One good option is to work with the new user you created.
+
+Assuming your user has a name like, `marco`, we'll show you what to do next.
+
+In Cloud9, run this command to bring up a VI editor:
+
+```bash
+kubectl edit -n kube-system configmap/aws-auth
+```
+
+You'll see a file with entries like `mapAccounts` and `mapRoles`.  You'll have to add an entry for `mapUsers` as shown below:
+
+```yaml
+apiVersion: v1
+data:
+  mapAccounts: |
+    - "157339908627"
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::157339908627:role/eksctl-marco-eks-cluster2-nodegro-NodeInstanceRole-AH77RPOZ3I7C
+      username: system:node:{{EC2PrivateDNSName}}
+  mapUsers: |
+    - userarn: arn:aws:iam::157339908627:user/marco
+      username: marco
+      groups:
+        - system:masters
+kind: ConfigMap
+```
+
+The new blocks are:
+
+```yaml
+  mapAccounts: |
+    - "157339908627"
+```
+
+and
+
+```yaml
+  mapUsers: |
+    - userarn: arn:aws:iam::157339908627:user/marco
+      username: marco
+      groups:
+        - system:masters
+```
+where you may be able to see the ARN is for your user, and the account we're mapping to is embedded in that ARN.  This account number is specific to your Event Engine workshp day.
+
+
+When you save this file with the vi `Escape - Colon - w - q` sequence, you should see this message:
+
+```
+configmap/aws-auth edited
+```
+
+Next, let's bind your user to the `cluster-admin` role for the cluster.  With only one cluster we're in good shape to rely on our new EKS cluster as the default, so we don't need to specify it.  The binding name is semi-arbitrary, and we name is something clear, `marco-admin-binding` in the example below.  Copy this command and edit in your name and run it:
+
+```
+kubectl create clusterrolebinding YOURUSER-admin-binding --clusterrole=cluster-admin --user=YOURUSER
+```
+
+In our workshop example, we see this:
+
+```
+kubectl create clusterrolebinding marco-admin-binding --clusterrole=cluster-admin --user=marco
+clusterrolebinding.rbac.authorization.k8s.io/marco-admin-binding created
+```
+
+These command will let you deploy your container to your kubernetes cluster via user + AWS keys in a pipeline.  That is great for replicating a working pipeline.
+
