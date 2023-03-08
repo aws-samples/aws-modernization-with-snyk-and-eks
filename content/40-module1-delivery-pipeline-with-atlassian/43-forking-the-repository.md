@@ -9,7 +9,7 @@ In this section we fork the repository and clone it into your Cloud9 environment
 
 ### Fork the repository
 
-In Atlassian Bitbucket, click [here](https://bitbucket.org/snyk/patterns-library-atlassian-aws/fork) to fork the `upstream` repository into your Bitbucket 
+In Atlassian Bitbucket, click [here](https://bitbucket.org/marco-morales-snyk/workshop-patterns-library-atlassian-aws/fork) to fork the `upstream` repository into your Bitbucket 
 account. For detailed instructions on how to [fork a respository](https://support.atlassian.com/bitbucket-cloud/docs/fork-a-repository/), 
 please review Atlassian's documentation.
 
