@@ -7,7 +7,16 @@ weight: 13
 # Who Are We?
 
 ## Atlassian
-TODO: Insert statement abvout Atlassian
+Atlassian is a software company that provides solutions for teamwork and collaboration. It was founded in 2002 by two Australian entrepreneurs, Mike Cannon-Brookes and Scott Farquhar. Atlassian’s products include Jira, a project management and issue tracking tool; Confluence, a content management and knowledge sharing platform; Trello, a visual task management app; and Bitbucket, a code hosting and collaboration service. Atlassian has over 200,000 customers worldwide and more than 5,000 employees.
+
+Atlassian provides a range of products and services for modern software developers. Some of them are:
+
+Jira Software, a project management and issue tracking tool that helps teams plan, track, and release software.
+Confluence, a content management and knowledge sharing platform that helps teams collaborate on documentation, specifications, and designs.
+Bitbucket, a code hosting and collaboration service that supports Git and Mercurial version control systems.
+Opsgenie, an incident management tool that helps teams respond to alerts and incidents faster and more effectively.
+Forge, a cloud development platform that allows developers to build and distribute apps for Atlassian products without managing infrastructure or security.
+These products are designed to help software developers work more efficiently, collaboratively, and securely across the entire software development lifecycle
 
 ## Snyk
 

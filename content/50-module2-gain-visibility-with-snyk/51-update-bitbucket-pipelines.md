@@ -35,24 +35,12 @@ test-app: &test-app
 Next, let's uncomment that block to enable Snyk Scans of open Source for the libraries your team uses.
 
 ```yaml
-scan-app: &scan-app
-  - step:
-      name: "Scan open source dependencies"
-      caches:
-        - node
-      script:
-        - echo "Scan open source Dependencies"
-        # Uncomment the following lines to enable Snyk Open Source Scanning
-        # - pipe: snyk/snyk-scan:0.5.3
-        #   variables:
-        #     SNYK_TOKEN: $SNYK_TOKEN
-        #     LANGUAGE: "npm"
-        #     PROJECT_FOLDER: "app/goof"
-        #     TARGET_FILE: "package.json"
-        #     CODE_INSIGHTS_RESULTS: "true"
-        #     SEVERITY_THRESHOLD: "high"
-        #     DONT_BREAK_BUILD: "true"
-        #     MONITOR: "false"
+pipelines:
+  default:
+    - <<: *test-app
+    # Uncomment this line to enable the scanning of the application.
+    # - <<: *scan-app
+    - <<: *scan-push-image
 ```
 
 ### Step 3 - Add Snyk scanning of open source

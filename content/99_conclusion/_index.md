@@ -17,12 +17,10 @@ On behalf of team Snyk, Atlassian, and AWS... __THANK YOU__ for taking the time 
 ## Let's quickly recap what you've learned
 
 1. Integrating Snyk with Bitbucket Cloud
+1. Integrating Snyk with Amazon ECR to continuously monitor images
 1. Finding and fixing vulnerabilities in open source dependencies in your code
 1. Building a secure CI/CD pipeline with Bitbucket Pipelines and Snyk Pipe
 1. Scanning container images and applying base image upgrade recommendations
-1. Integrating Snyk with Amazon ECR to continuously monitor images
-1. Deploy Snyk controller into an Amazon EKS cluster
-1. Integrate Snyk with Amazon EKS to monitor Kubernetes workloads
 1. Identify and fix insecure configurations in Kubernetes deployments
 
 __Wow!__ That's a lot of knowledge!

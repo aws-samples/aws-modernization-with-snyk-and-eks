@@ -25,10 +25,10 @@ Click the Create environment button, and use the name use sh-workshop, then clic
 ![aws-cloud9-step-1](/images/aws-cloud9-1.png)
 
 In the configuration screens, 
-- Select the default instance type t2.micro
+- Select the default instance type `t2.micro`
 - Leave all the other settings as default and click Next
 
-![aws-cloud9-step-1](/images/aws-cloud9-2.png)
+![aws-cloud9-step-1](/images/aws-setup-cloud9.png)
 
 Verify your selections and press the button to **Create environment**.
 
@@ -49,6 +49,6 @@ Tip: You are free to customize the look and feel of your environment, including 
 
 Tip: Cloud9 requires third-party-cookies. You can whitelist the specific domains. You are having issues with this, Ad blockers, javascript disabler, and tracking blockers should be disabled for the cloud9 domain, or connecting to the workspace might be impacted.
 
-### Next Section: TODO: TBD
-In the next section, we describe TBD
+### Next Section: Setting up Snyk
+In the next section, we describe how you would setup your Snyk account.
 

@@ -4,7 +4,6 @@ chapter: true
 weight: 12 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES IF APPLICABLE
 ---
 
-TODO: Open Source and Containers
 # The technical hurdles to code, open-source, and containers
 
 ## The problem of managing software vulnerabities

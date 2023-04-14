@@ -18,7 +18,7 @@ Follow [this link](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#I
 
 ## Modify IAM Role
 
-2. Choose the role that we created in the previous step: hs-workshop-cloud-9
+2. Choose the role that we created in the previous step: workshop-cloud-9
 2. Click on Update IAM Role
 
 ![aws-assign-role-step-1](/images/aws-assign-role-2.png)
